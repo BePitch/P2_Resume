@@ -1,14 +1,14 @@
 function displaybio(){
         var bio = {
             "name" : "Brandon Pitchford",
-            "role" : "Business Analyst",
+            "role" : "SQL Data Analyst",
             "contacts" :
                 {
-                "mobile:":"678-463-2895",
-                "email:": "bpitchfo@gmail.com",
-                "github:": "bepitch",
-                "twitter:": "@bepitch",
-                "location:": "Denver"
+                "Mobile:":"678-XXX-XXXX",
+                "Email:": "bpitchfo@gmail.com",
+                "Github:": "bepitch",
+                "Twitter:": "@Misc",
+                "Location:": "Atlanta, GA"
                 },
             "welcomeMessage": "Hello and welcome to the home of Brandon Pitchford",
             "skills": ["SharePoint", "SQL Reporting", "Data Visualization", "SDLC", "Quickbase and Salesforce.com"],
@@ -16,20 +16,17 @@ function displaybio(){
         }
         
         var formattedName = HTMLheaderName.replace("%data%", bio.name);
-        $("#header").append(formattedName);
         var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-        $("#header").append(formattedRole);
+        $('#header').prepend(formattedName, formattedRole);
                 
-        for (var contact in bio.contacts) {
-                        
+        for (var contact in bio.contacts) {      
             var formattedContact = HTMLcontactGeneric.replace("%contact%", contact).replace("%data%", bio.contacts[contact]);  //This is helpful for iterating on both attributes of the object/array. Forum assited me with this. Was helpful and I understand how to save code on this
             $("#topContacts, #footerContacts").append(formattedContact);                                                        
-        }  
-                
+        }    
         
         var formattedWelcome = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
         $("#header").append(formattedWelcome);
-        var formattedPic = HTMLbioPic.replace("%data%","images/fry.jpg");   
+        var formattedPic = HTMLbioPic.replace("%data%","images/self.jpg");   
         $("#header").append(formattedPic);
         
         
@@ -53,10 +50,17 @@ function displaywork(){
     var work = {
     "jobs": [
         {
+         "employer": "Cricket Wireless",
+         "title": "SQL Marketing Database Mgr.",
+         "location": "Atlanta, GA",
+         "dates": "10/12/2015 - Present",
+         "description": "Create and build cross warehouse functional data queries and perform data aggregation via DAX scripts"
+        },
+        {
          "employer": "Sprint",
          "title": "Sales Business Analyst II",
          "location": "Denver, CO",
-         "dates": "11/17/014 - Present",
+         "dates": "11/17/2014 - 10/02/2015 (10 Months)",
          "description": "Responsible for sales reporting and the creation of systems and tools used by the Sales Organization."
         },
         {
@@ -65,6 +69,20 @@ function displaywork(){
          "location": "Denver, CO",
          "dates": "01/01/2010 - 11/16/2014",
          "description": "Served as a SharePoint development Admin and provided reporting to corporate liable call centers employed by over 2,800 employees."
+        },
+        {
+         "employer": "Sprint",
+         "title": "Business Continuity Manager",
+         "location": "Atlanta, GA",
+         "dates": "04/01/2009 - 12/31/2010",
+         "description": ""
+        },
+        {
+         "employer": "Sprint",
+         "title": "Implementation Project Manager",
+         "location": "Atlanta, GA",
+         "dates": "08/11/2008 - 04/01/2009",
+         "description": ""
         }
         
     ]
@@ -97,23 +115,29 @@ function displayprojects(){
              "title": "Wireless Sales Reporting Tools",
              "dates": "11/17/014 - Present",
              "description": "Responsible for sales reporting and the creation of systems and tools used by the Sales Organization.",
-             "images":["(insert image array here)", "2nd image here like https://www.image.com"]
+             "images":["images/doc.png", "images/doc.png"]
             }
         ]
     }
-    for (proj in projects.project) {
+    for (project in projects.project) {
             $("#projects").append(HTMLprojectStart);
         
-            var formattedProject = HTMLprojectTitle.replace("%data%", projects.project[proj].title);
+            var formattedProject = HTMLprojectTitle.replace("%data%", projects.project[project].title);
             $(".project-entry:last").append(formattedProject);
             
-            var formattedProjDates = HTMLprojectDates.replace("%data%", projects.project[proj].dates);
+            var formattedProjDates = HTMLprojectDates.replace("%data%", projects.project[project].dates);
             $(".project-entry:last").append(formattedProjDates);
             
-            var formattedProjDescrp = HTMLprojectDescription.replace("%data%", projects.project[proj].description);
+            var formattedProjDescrp = HTMLprojectDescription.replace("%data%", projects.project[project].description);
             $(".project-entry:last").append(formattedProjDescrp);
             
-    }   
+            if (projects.project[project].images.length > 0) {
+                for (image in projects.project[project].images) {
+                    var formattedImage = HTMLprojectImage.replace("%data%", projects.project[project].images[image]);
+                    $(".project-entry:last").append(formattedImage);
+                }
+    }
+    }
 }
 displayprojects();
 
@@ -145,3 +169,17 @@ var education = {
     ]
 }
 }
+
+function inName() {
+    var name = window.name;
+    name = name.trim().split(" ");
+    console.log(name);
+    name[1] = name[1].toUpperCase();
+    name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
+    
+    return name[0] +" "+name[1];
+}
+var name = $("#name").text();
+$('#main').append(internationalizeButton);
+
+$("#mapDiv").append(googleMap);

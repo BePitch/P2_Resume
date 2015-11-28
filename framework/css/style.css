@@ -96,7 +96,8 @@ a {
 }
 
 .orange-text {
-  color: #F5AE23;
+  color: #f90;
+  font-weight: bold;
 }
 
 .white-text {
@@ -116,7 +117,12 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #262626;
+}
+
+span {
+  color: #00ffff;
+  font-weight: bold;
 }
 
 .flex-box {
