@@ -1,5 +1,6 @@
-function displaybio(){
-        var bio = {
+$("#mapDiv").append(googleMap);
+
+var bio = {
             "name" : "Brandon Pitchford",
             "role" : "SQL Data Analyst",
             "contacts" :
@@ -8,46 +9,47 @@ function displaybio(){
                 "Email:": "bpitchfo@gmail.com",
                 "Github:": "bepitch",
                 "Twitter:": "@Misc",
-                "Location:": "Atlanta, GA"
+                "location:": "Atlanta, GA"
                 },
             "welcomeMessage": "Hello and welcome to the home of Brandon Pitchford",
             "skills": ["SharePoint", "SQL Reporting", "Data Visualization", "SDLC", "Quickbase and Salesforce.com"],
-            "bioPic": "images/fry.jpg"
+            "bioPic": "images/pitch.png"
         }
-        
-        var formattedName = HTMLheaderName.replace("%data%", bio.name);
-        var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-        $('#header').prepend(formattedName, formattedRole);
-                
-        for (var contact in bio.contacts) {      
-            var formattedContact = HTMLcontactGeneric.replace("%contact%", contact).replace("%data%", bio.contacts[contact]);  //This is helpful for iterating on both attributes of the object/array. Forum assited me with this. Was helpful and I understand how to save code on this
-            $("#topContacts, #footerContacts").append(formattedContact);                                                        
-        }    
-        
-        var formattedWelcome = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
-        $("#header").append(formattedWelcome);
-        var formattedPic = HTMLbioPic.replace("%data%","images/self.jpg");   
-        $("#header").append(formattedPic);
-        
-        
-        if (bio.skills.length > 0){
-            $("#header").append(HTMLskillsStart);
-            
-            var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-            $("#skills").append(formattedSkill);
-            formattedSkill = HTMLskills.replace("%data%",bio.skills[1]);
-            $("#skills").append(formattedSkill);
-            formattedSkill = HTMLskills.replace("%data%",bio.skills[2]);
-            $("#skills").append(formattedSkill);
-            formattedSkill = HTMLskills.replace("%data%",bio.skills[3]);
-            $("#skills").append(formattedSkill);  
-        }
-        
-        }
-displaybio();
+                        
+bio.display = function (){
 
-function displaywork(){
-    var work = {
+
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+$('#header').prepend(formattedName, formattedRole);
+        
+for (var contact in bio.contacts) {      
+    var formattedContact = HTMLcontactGeneric.replace("%contact%", contact).replace("%data%", bio.contacts[contact]);  //This is helpful for iterating on both attributes of the object/array. Forum assited me with this. Was helpful and I understand how to save code on this
+    $("#topContacts, #footerContacts").append(formattedContact);                                                        
+}    
+
+var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+$("#header").append(formattedWelcome);
+var formattedPic = HTMLbioPic.replace("%data%",bio.bioPic);   
+$("#header").append(formattedPic);
+
+
+if (bio.skills.length > 0){
+    $("#header").append(HTMLskillsStart);
+    
+    var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+    $("#skills").append(formattedSkill);
+    formattedSkill = HTMLskills.replace("%data%",bio.skills[1]);
+    $("#skills").append(formattedSkill);
+    formattedSkill = HTMLskills.replace("%data%",bio.skills[2]);
+    $("#skills").append(formattedSkill);
+    formattedSkill = HTMLskills.replace("%data%",bio.skills[3]);
+    $("#skills").append(formattedSkill);  
+}
+
+}
+bio.display();
+var work = {
     "jobs": [
         {
          "employer": "Cricket Wireless",
@@ -87,7 +89,9 @@ function displaywork(){
         
     ]
 }
-    for (job in work.jobs) {
+work.display = function (){
+    
+    for (var job in work.jobs) {
         $("#workExperience").append(HTMLworkStart);
     
         var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
@@ -104,22 +108,24 @@ function displaywork(){
         
         var formattedJobDes = HTMLworkDescription.replace("%data%", work.jobs[job].description);  
         $(".work-entry:last").append(formattedJobDes);
-}   
 }
-displaywork();
+}
+work.display();
 
-function displayprojects(){
-    var projects = {
-        "project": [
-            {
-             "title": "Wireless Sales Reporting Tools",
-             "dates": "11/17/014 - Present",
-             "description": "Responsible for sales reporting and the creation of systems and tools used by the Sales Organization.",
-             "images":["images/doc.png", "images/doc.png"]
-            }
-        ]
-    }
-    for (project in projects.project) {
+var projects = {
+       "project": [
+           {
+            "title": "Wireless Sales Reporting Tools",
+            "dates": "11/17/014 - Present",
+            "description": "Responsible for sales reporting and the creation of systems and tools used by the Sales Organization.",
+            "images":["images/doc.png", "images/doc.png"]
+           }
+       ]
+   }
+
+projects.display = function() {
+   
+    for (var project in projects.project) {
             $("#projects").append(HTMLprojectStart);
         
             var formattedProject = HTMLprojectTitle.replace("%data%", projects.project[project].title);
@@ -139,22 +145,23 @@ function displayprojects(){
     }
     }
 }
-displayprojects();
+projects.display();
 
-function displayeducation(){
 var education = {
     "schools": [
         {
-        "name" :"Kennesaw State University",
+        "name" : "Kennesaw State University",
         "location": "Kennesaw, GA",
-        "degree": "B.B.A.",
+        "degree": "B.B.A. Management",
+        "dates": "01/07/2006 - 07/12/2008",
         "majors":["Business Management"],
         "url":"http://www.kennesaw.edu"
         },
         {
-        "name" :"University of Phoenix",
+        "name" : "University of Phoenix",
         "location": "Lone Tree, CO",
         "degree": "B.S. Information Technology",
+        "dates": "08/07/2013 - 06/05/2015",
         "majors": ["Database and Information Management"],
         "url": "http://www.phoenix.edu"
         }
@@ -168,7 +175,40 @@ var education = {
         }
     ]
 }
+
+education.display = function() {
+for (var school in education.schools) {
+        $("#education").append(HTMLschoolStart);
+    
+        var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
+        var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+        
+        var formattedSchoolTitle = formattedName + formattedDegree;
+        $(".education-entry:last").append(formattedSchoolTitle);
+        
+        
+        var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+        $(".education-entry:last").append(formattedLocation);
+        var formattedDate = HTMLschoolDates.replace("%data%", education.schools[school].dates);  
+        $(".education-entry:last").append(formattedDate);
+        var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors);  
+        $(".education-entry:last").append(formattedMajor);       
 }
+ $(".education-entry:last").append(HTMLonlineClasses);
+
+for (var course in education.onlineCourses) {     
+        var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
+        var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
+        
+        var formattedCourseTitle = formattedOnlineTitle + formattedOnlineSchool;
+        $(".education-entry:last").append(formattedCourseTitle);   
+        var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCourses[course].dates);
+        $(".education-entry:last").append(formattedDates);
+        var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[course].url);  
+        $(".education-entry:last").append(formattedURL);
+}
+}
+education.display();
 
 function inName() {
     var name = window.name;
@@ -179,7 +219,7 @@ function inName() {
     
     return name[0] +" "+name[1];
 }
+
 var name = $("#name").text();
 $('#main').append(internationalizeButton);
 
-$("#mapDiv").append(googleMap);
