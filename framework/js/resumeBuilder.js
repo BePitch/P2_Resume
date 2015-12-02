@@ -63,30 +63,36 @@ var work = {
          "title": "Sales Business Analyst II",
          "location": "Denver, CO",
          "dates": "11/17/2014 - 10/02/2015 (10 Months)",
-         "description": "Responsible for sales reporting and the creation of systems and tools used by the Sales Organization."
+         "description": "Responsible for sales reporting..."
         },
         {
          "employer": "Sprint",
          "title": "Workforce Business Analyst",
          "location": "Denver, CO",
          "dates": "01/01/2010 - 11/16/2014",
-         "description": "Served as a SharePoint development Admin and provided reporting to corporate liable call centers employed by over 2,800 employees."
+         "description": "Served as a SharePoint development Admin while watching Bob Ross"
         },
         {
          "employer": "Sprint",
          "title": "Business Continuity Manager",
          "location": "Atlanta, GA",
          "dates": "04/01/2009 - 12/31/2010",
-         "description": ""
+         "description": "Protected the network by creating network nodes and monitoring Everything...Kappa"
         },
         {
          "employer": "Sprint",
          "title": "Implementation Project Manager",
          "location": "Atlanta, GA",
          "dates": "08/11/2008 - 04/01/2009",
-         "description": ""
+         "description": " Miscellaneous stuff that earned the company nothing"
+        },
+        {
+         "employer": "Tiresplus",
+         "title": "Grease Monkey Manager",
+         "location": "Augusta, GA",
+         "dates": "06/18/2000 - 04/01/2008",
+         "description": " Made sure people didn't break stuff, notably people's cars"
         }
-        
     ]
 }
 work.display = function (){
@@ -118,6 +124,12 @@ var projects = {
             "title": "Wireless Sales Reporting Tools",
             "dates": "11/17/014 - Present",
             "description": "Responsible for sales reporting and the creation of systems and tools used by the Sales Organization.",
+            "images":["images/doc.png", "images/doc.png"]
+           },
+           {
+            "title": "Staffing Management Tool",
+            "dates": "02/04/2008 - 11/16/014",
+            "description": "Tool built to track peoples attendance in call centers",
             "images":["images/doc.png", "images/doc.png"]
            }
        ]
@@ -168,9 +180,15 @@ var education = {
     ],
     "onlineCourses": [
         {
-            "title": "Into to Python Programming",
+            "title": "1) Into to Python Programming",
             "school": "Udacity",
             "dates": "1/3/2014 - 6/3/2014",
+            "url": "http://www.udacity.com"
+        },
+         {
+            "title": "2) Front-End Web Development Nanodegree",
+            "school": "Udacity",
+            "dates": "11/20/2015 - Present",
             "url": "http://www.udacity.com"
         }
     ]

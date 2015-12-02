@@ -119,7 +119,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #262626;
+  background-color: #1a1a1a;
 }
 
 span {
@@ -221,3 +221,42 @@ span {
     display: block;
   }
 }
+
+body {
+      position: relative; 
+  }
+  
+  .affix {
+      top:0;
+      width: 100%;
+      z-index: 9999 !important;
+  }
+  
+  .navbar {
+      margin-bottom: 0px;
+  }
+
+  .affix ~ .container-fluid {
+     position: relative;
+     top: 50px;
+  }
+  
+  #skills-h3 {
+    color: #f90;
+  }
+  
+  #workExperience  {
+    padding-top:40px;
+    }
+    
+  #projects{
+     padding-top:40px;
+  }
+  
+  #education {
+     padding-top:40px;
+  }
+  
+  #mapDiv {
+     padding-top:40px;
+  }

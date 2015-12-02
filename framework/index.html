@@ -22,7 +22,8 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   <title>Resume</title>
 
   <!-- Load the page styles. -->
-  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link href="css/style.css" rel="stylesheet" >
 
   <!--
   jQuery is a common JavaScript library for reading and making changes to the
@@ -47,10 +48,11 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   Google Map to your resume!
   -->
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+  <script src="js/bootstrap.min.js"></script>
 
   <meta name="viewport" content="width=device-width">
 </head>
-<body unresolved>
+<body unresolved data-spy="scroll" data-target=".navbar" data-offset="50">
   <div id="main">
     <!-- You'll be deleting this line in the course -->
 
@@ -60,10 +62,23 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     resume below. You can pretty easily figure out what each section will
     display by looking at the id or at what's written between the <h2> tags.
     -->
-    <div id="header" class="center-content clearfix">
+    <div id="header" class="center-content clearfix container-fluid">
       <ul id="topContacts" class='flex-box'></ul>
     </div>
+    <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="320">  <!-- Using the bootstrap affix plugin to keep navbar at top when scrolling-->
+      <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li><a href="#workExperience">Work Experience</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#education">Education</a></li>
+              <li><a href="#mapDiv">My Map</a></li>
+            </ul>
+        </div>
+      </div>
+    </nav> 
     <div style='clear: both;'></div>
+    
     <div id="workExperience" class='gray'>
       <h2>Work Experience</h2>
     </div>
